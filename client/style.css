@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+:root {
+  --color-primary: #f9f9f9;
+  --color-secondary: #8aaefd;
+  --color-tertiary: #5187fc;
+  --color-quaternary: #0452fb;
+  --color-quinary: #033194;
+  /*
+  --color-primary: #5192ED;
+  --color-secondary: #69A1F0;
+  --color-tertiary: #7EAEF2;
+  --color-quaternary: #90BAF5;
+  --color-quinary: #A2C4F5;
+  */
+}
+
+body {
+  background: #343541;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background: #343541;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#chat_container {
+  flex: 1;
+  margin-top: 170px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+/* hides scrollbar */
+#chat_container::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper {
+  width: 90%;
+  margin-left: 5% !important;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.ai {
+  background: #40414F;
+}
+
+.chat {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai .profile {
+  background: #00bfff;
+}
+
+.profile img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.message {
+  flex: 1;
+
+  color: #dcdcdc;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+
+  max-width: 100%;
+  overflow-x: scroll;
+
+  /*
+   * white space refers to any spaces, tabs, or newline characters that are used to format the CSS code
+   * specifies how white space within an element should be handled. It is similar to the "pre" value, which tells the browser to treat all white space as significant and to preserve it exactly as it appears in the source code.
+   * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
+   * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
+  */
+  white-space: pre-wrap; 
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* hides scrollbar */
+.message::-webkit-scrollbar {
+  display: none;
+}
+
+form {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #40414F;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+textarea {
+  width: 100%;
+
+  color: #fff;
+  font-size: 18px;
+
+  padding: 10px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+form img {
+  width: 30px;
+  height: 30px;
+}
+
+.font-effect-shadow-multiple {
+  text-shadow: 0.04em 0.04em 0 #fff, 0.08em 0.08em 0 #aaa;
+  -webkit-text-shadow: 0.04em 0.04em 0 #fff, 0.08em 0.08em 0 #aaa;
+}
+.font-effect-3d-float {
+  text-shadow: 0 0.032em 0 #b0b0b0, 0px 0.15em 0.11em rgba(0, 0, 0, 0.15),
+    0px 0.25em 0.021em rgba(0, 0, 0, 0.1), 0px 0.32em 0.32em rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.header {
+  margin: 0;
+  margin-top: 2% !important;
+  margin-bottom: -10% !important;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.text_shadows {
+  text-shadow: 2px 2px 0 var(--color-secondary), 4px 4px 0 var(--color-tertiary), 6px 6px var(--color-quaternary), 8px 8px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* font-size: calc(0.5rem + 5vw); */
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  -webkit-animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+          animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  /* letter-spacing: 0.4rem; */
+}
+
+@-webkit-keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
