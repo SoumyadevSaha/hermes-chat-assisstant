@@ -2,6 +2,32 @@
 var currentYear = new Date().getFullYear();
 let year = document.getElementById('year');
 year.innerHTML = currentYear;
+let speechSupport = false;
+
+if ('speechSynthesis' in window) {
+  // Speech Synthesis supported 🎉
+  console.log('Speech Synthesis supported 🎉');
+  speechSupport = true;
+} else {
+  // Speech Synthesis Not Supported 😣
+  console.error('Speech Synthesis Not Supported 😣');
+}
+
+// function to check if a message has a url in it
+function messageHasURL(message) {
+  if(message.includes('http://') || message.includes('www.') || message.includes('https://')) {
+    return true;
+  }
+  return false;
+}
+
+// function to speak out a result.
+function speak(message) {
+  if (speechSupport) {
+    var msg = new SpeechSynthesisUtterance(message);
+    window.speechSynthesis.speak(msg);
+  }
+}
 
 import bot from './assets/bot.png';
 import user from './assets/user.png';
@@ -92,18 +118,25 @@ const handleSubmit = async (e) => {
   if (response.ok) {
     const data = await response.json();
     const parsedData = data.bot.trim();
-    // chech if bot's response contains a particualr string :
+    // check if bot's response contains a particular string :
     if (parsedData.includes('My name is')) {
       // change the name 'Alex' to 'Hermes' :
       console.log(parsedData);
       const newParsedData = 'My name is Hermes.'
+      speak(newParsedData);
       typeText(messageDiv, newParsedData);
     }
-    else
+    else {
+      if (parsedData.length <= 450 && !messageHasURL(parsedData))
+        speak(parsedData);
+      else
+        speak('Here you go !');
       typeText(messageDiv, parsedData);
+    }
   }
   else {
     const err = await response.text();
+    speak('Oops, something went wrong !');
     typeText(messageDiv, 'Oops, something went wrong !');
     alert(err);
   }
@@ -114,4 +147,4 @@ form.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     handleSubmit(e);
   }
-})
+});
